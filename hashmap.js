@@ -30,6 +30,12 @@ class HashMap {
 		}
 	}
 
+    #resize() {
+        this.#capacity *= 2
+        this.#buckets = Array.from({length: this.#capacity}, (e, i) => e = this.#buckets[i] || null)
+        console.log(`resized. buckets now ${this.#buckets}`)
+    }
+
 	set(key, value) {
 		const index = this.#hash(key);
         console.log({index})
@@ -49,6 +55,10 @@ class HashMap {
         } else {
             this.#buckets[index].append(entry)
             this.#entries++
+        }
+        
+        if (this.#entries/this.#capacity > this.#loadFactor) {
+            this.#resize()
         }
 	}
 }

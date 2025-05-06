@@ -4,10 +4,19 @@ import { HashMap } from "./hashmap.js";
 
 const test = new HashMap()
 
-test.set('apple', 'green')
-test.set('apple', 'red')
 test.set('apple', 'granny')
 test.set('orange', 'orange')
 test.set('carrot', 'orange')
+test.set('one', 'stuff')
+test.set('two', 'stuff')
+test.set('three', 'stuff')
+test.set('wsaldkfj', 'stuff')
+test.set('asdf', 'stuff')
+test.set('asdv', 'stuff')
+test.set('asd1', 'stuff')
+test.set('ergx', 'stuff')
+test.set('erqwsdgx', 'stuff')
+test.set('wsdgx', 'stuff')
+
 
 console.log(test)
