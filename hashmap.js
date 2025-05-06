@@ -34,22 +34,22 @@ class HashMap {
 		const index = this.#hash(key);
         console.log({index})
 		this.#verifyIndex(index);
-        console.log(this.#buckets[index])
 
 		const entry = { key: key, value: value };
 
 		if (this.#buckets[index] === null) {
 			this.#buckets[index] = new LinkedList();
-			this.#buckets[index].append(entry);
-		} else {
-            console.log(entry.key)
-            console.log(this.#buckets[index])
-			if (this.#buckets[index].contains(entry.key)) {
-                throw new Error('key already exists. Enter new key')
-            }
-			// For now, just append
-			this.#buckets[index].append(entry)
-		}
+            this.#buckets[index].append(entry)
+            this.#entries++
+		} else if (this.#buckets[index].contains(entry.key)) {
+            const listIndex = this.#buckets[index].find(key)
+            console.log({listIndex})
+            this.#buckets[index].removeAt(listIndex)
+            this.#buckets[index].insertAt(entry, index)
+        } else {
+            this.#buckets[index].append(entry)
+            this.#entries++
+        }
 	}
 }
 

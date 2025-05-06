@@ -92,12 +92,12 @@ class LinkedList {
 		return false;
 	}
 
-	find(value) {
+	find(key) {
 		if (!this.head) return null;
 		let index = 0;
 		let current = this.head;
 		while (current) {
-			if (current.value.value === value) {
+			if (current.value.key === key) {
 				return index;
 			}
 			index++;
