@@ -42,7 +42,11 @@ class HashMap {
 			this.#buckets[index] = new LinkedList();
 			this.#buckets[index].append(entry);
 		} else {
-			// if (this.#buckets[index].contains())
+            console.log(entry.key)
+            console.log(this.#buckets[index])
+			if (this.#buckets[index].contains(entry.key)) {
+                throw new Error('key already exists. Enter new key')
+            }
 			// For now, just append
 			this.#buckets[index].append(entry)
 		}

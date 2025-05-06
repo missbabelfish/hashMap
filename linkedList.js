@@ -84,7 +84,7 @@ class LinkedList {
 
 		let current = this.head;
 		while (current) {
-			if (current.value === value) {
+			if (current.value.key === value) {
 				return true;
 			}
 			current = current.next;
@@ -97,7 +97,7 @@ class LinkedList {
 		let index = 0;
 		let current = this.head;
 		while (current) {
-			if (current.value === value) {
+			if (current.value.value === value) {
 				return index;
 			}
 			index++;
@@ -113,7 +113,7 @@ class LinkedList {
 		let current = this.head;
 
 		while (current) {
-			values.push(`( ${current.value} )`);
+			values.push(`( ${current.value.value} )`);
 			current = current.next;
 		}
 
