@@ -16,7 +16,6 @@ class LinkedList {
 			return;
 		}
 		let current = this.head;
-		console.log({current})
 		while (current.next) {
 			current = current.next;
 		}
@@ -98,7 +97,7 @@ class LinkedList {
 		let current = this.head;
 		while (current) {
 			if (current.value.key === key) {
-				return index;
+				return current.value.value;
 			}
 			index++;
 			current = current.next;

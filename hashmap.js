@@ -33,12 +33,10 @@ class HashMap {
     #resize() {
         this.#capacity *= 2
         this.#buckets = Array.from({length: this.#capacity}, (e, i) => e = this.#buckets[i] || null)
-        console.log(`resized. buckets now ${this.#buckets}`)
     }
 
 	set(key, value) {
 		const index = this.#hash(key);
-        console.log({index})
 		this.#verifyIndex(index);
 
 		const entry = { key: key, value: value };
@@ -49,7 +47,6 @@ class HashMap {
             this.#entries++
 		} else if (this.#buckets[index].contains(entry.key)) {
             const listIndex = this.#buckets[index].find(key)
-            console.log({listIndex})
             this.#buckets[index].removeAt(listIndex)
             this.#buckets[index].insertAt(entry, index)
         } else {
@@ -61,6 +58,14 @@ class HashMap {
             this.#resize()
         }
 	}
+
+    get(key) {
+        const index = this.#hash(key);
+		this.#verifyIndex(index);
+
+        const target = this.#buckets[index].find(key)
+        return target;
+    }
 }
 
 export { HashMap };

@@ -12,11 +12,12 @@ test.set('two', 'stuff')
 test.set('three', 'stuff')
 test.set('wsaldkfj', 'stuff')
 test.set('asdf', 'stuff')
-test.set('asdv', 'stuff')
+test.set('asdv', 'what')
 test.set('asd1', 'stuff')
 test.set('ergx', 'stuff')
 test.set('erqwsdgx', 'stuff')
 test.set('wsdgx', 'stuff')
 
+test.get('asdv');
 
 console.log(test)
