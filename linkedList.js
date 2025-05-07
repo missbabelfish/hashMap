@@ -78,12 +78,12 @@ class LinkedList {
 		return popped;
 	}
 
-	contains(value) {
+	contains(key) {
 		if (!this.head) return false;
 
 		let current = this.head;
 		while (current) {
-			if (current.value.key === value) {
+			if (current.value.key === key) {
 				return true;
 			}
 			current = current.next;

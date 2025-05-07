@@ -18,6 +18,7 @@ test.set('ergx', 'stuff')
 test.set('erqwsdgx', 'stuff')
 test.set('wsdgx', 'stuff')
 
-test.get('asdv');
-
+test.get('floof');
+test.has('apple')
+test.has('floof')
 console.log(test)

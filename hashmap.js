@@ -62,9 +62,21 @@ class HashMap {
     get(key) {
         const index = this.#hash(key);
 		this.#verifyIndex(index);
-
+        if (this.#buckets[index] === null) return null
+        
         const target = this.#buckets[index].find(key)
         return target;
+    }
+    
+    has(key) {
+        const index = this.#hash(key);
+		this.#verifyIndex(index);
+        if (this.#buckets[index] === null) {
+            console.log('not found')
+            return false
+        }
+
+        return this.#buckets[index].contains(key);
     }
 }
 
