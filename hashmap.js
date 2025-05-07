@@ -46,7 +46,7 @@ class HashMap {
             this.#buckets[index].append(entry)
             this.#entries++
 		} else if (this.#buckets[index].contains(entry.key)) {
-            const listIndex = this.#buckets[index].find(key)
+            const listIndex = this.#buckets[index].findIndex(key)
             this.#buckets[index].removeAt(listIndex)
             this.#buckets[index].insertAt(entry, index)
         } else {
@@ -99,6 +99,51 @@ class HashMap {
         this.#capacity = 16;
         this.#buckets = Array.from({ length: this.#capacity }, e => null);
         this.#entries = 0;
+    }
+
+    keys() {
+        const allKeys = []
+        this.#buckets.forEach(bucket => {
+            if (bucket) {
+                let current = bucket.head;
+
+                while (current) {
+                    allKeys.push(current.value.key);
+                    current = current.next;
+                }
+            }
+        })
+        return allKeys
+    }
+
+    values() {
+        const allValues = [];
+		this.#buckets.forEach(bucket => {
+			if (bucket) {
+				let current = bucket.head;
+
+				while (current) {
+					allValues.push(current.value.value);
+					current = current.next;
+				}
+			}
+		});
+		return allValues;
+    }
+
+    entries() {
+        const allEntries = [];
+		this.#buckets.forEach(bucket => {
+			if (bucket) {
+				let current = bucket.head;
+
+				while (current) {
+					allEntries.push([current.value.key, current.value.value]);
+					current = current.next;
+				}
+			}
+		});
+		return allEntries;
     }
 }
 

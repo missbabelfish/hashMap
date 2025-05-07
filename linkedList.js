@@ -158,6 +158,7 @@ class LinkedList {
 	}
 
 	removeAt(index) {
+		console.log(index)
 		if (!this.head) {
 			throw new Error('no list');
 		}
