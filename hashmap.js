@@ -7,9 +7,9 @@ class HashMap {
 	#entries;
 
 	constructor(loadFactor) {
-		(this.#capacity = 16),
-			(this.#buckets = Array.from({ length: this.#capacity }, e => null)),
-			(this.#loadFactor = loadFactor || 0.8);
+		this.#capacity = 16,
+		this.#buckets = Array.from({ length: this.#capacity }, e => null),
+		this.#loadFactor = loadFactor || 0.8;
 		this.#entries = 0;
 	}
 
@@ -89,6 +89,16 @@ class HashMap {
             this.#entries--
         }
         return false
+    }
+
+    length() {
+        return this.#entries
+    }
+
+    clear() {
+        this.#capacity = 16;
+        this.#buckets = Array.from({ length: this.#capacity }, e => null);
+        this.#entries = 0;
     }
 }
 
