@@ -78,6 +78,18 @@ class HashMap {
 
         return this.#buckets[index].contains(key);
     }
+
+    remove(key) {
+        const index = this.#hash(key);
+		this.#verifyIndex(index);
+        if (this.has(key)) {
+            console.log(`removing ${key}`)
+            const target = this.#buckets[index].findIndex(key)
+            this.#buckets[index].removeAt(target)
+            this.#entries--
+        }
+        return false
+    }
 }
 
 export { HashMap };

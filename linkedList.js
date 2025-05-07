@@ -105,6 +105,20 @@ class LinkedList {
 		return 'not found';
 	}
 
+	findIndex(key) {
+		if (!this.head) return null;
+		let index = 0;
+		let current = this.head;
+		while (current) {
+			if (current.value.key === key) {
+				return index;
+			}
+			index++;
+			current = current.next;
+		}
+		return 'not found';
+	}
+
 	toString() {
 		if (!this.head) return 'null';
 

@@ -18,7 +18,8 @@ test.set('ergx', 'stuff')
 test.set('erqwsdgx', 'stuff')
 test.set('wsdgx', 'stuff')
 
-test.get('floof');
-test.has('apple')
-test.has('floof')
+// test.get('floof');
+// test.has('apple')
+// test.has('floof')
+test.remove('apple')
 console.log(test)
