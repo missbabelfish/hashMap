@@ -21,17 +21,16 @@ const test = new HashMap()
  test.set('carrot', 'purple')
  test.set('carrot', 'blue')
 
-  test.set('moon', 'silver');
+  test.set('moon', 'blue');
 
 
 
-// test.get('floof');
-// test.has('apple')
-// test.has('floof')
-// test.remove('apple')
-// console.log(test)
-// test.clear()
+console.log(test.get('moon'))
+console.log(test.has('apple'));
+test.set('apple', 'purple')
+test.remove('apple')
 console.log(test)
-// console.log(test.keys())
-// console.log(test.values())
-// console.log(test.entries())
+console.log(test.keys())
+console.log(test.length())
+console.log(test.values())
+console.log(test.entries())

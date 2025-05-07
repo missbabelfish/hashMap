@@ -18,7 +18,7 @@ class HashMap {
 
 		const primeNumber = 31;
 		for (let i = 0; i < key.length; i++) {
-			hashCode = (primeNumber * hashCode + key.charCodeAt(i)) % 16;
+			hashCode = (primeNumber * hashCode + key.charCodeAt(i)) % this.#capacity;
 		}
 
 		return hashCode;
@@ -32,7 +32,22 @@ class HashMap {
 
     #resize() {
         this.#capacity *= 2
-        this.#buckets = Array.from({length: this.#capacity}, (e, i) => e = this.#buckets[i] || null)
+        const entries = this.entries()
+        this.#buckets = Array.from({length: this.#capacity}, (e) => e = null)
+        entries.forEach(entry => {
+            this.#refill(entry[0], entry[1])
+        })
+    }
+
+    #refill(key, value) {
+        const index = this.#hash(key);
+		this.#verifyIndex(index);
+
+        const entry = { key: key, value: value };
+        if (this.#buckets[index] === null) {
+			this.#buckets[index] = new LinkedList();
+		} 
+        this.#buckets[index].append(entry);
     }
 
 	set(key, value) {
